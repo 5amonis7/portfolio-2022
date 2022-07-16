@@ -239,6 +239,7 @@ main .scew {
   margin-top: 8rem;
   transform: scale(2);
   width: 100%;
+  max-width: 30rem;
   height: auto;
   z-index: -1;
 }/*# sourceMappingURL=main.css.map */
