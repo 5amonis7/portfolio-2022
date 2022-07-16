@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,17 +13,30 @@
 </head>
 <body>
 
+    <div id="nav-items">
+        <a class="nav-item" href="#">About</a>
+        <a class="nav-item" href="#">Projects</a>
+        <a class="nav-item" href="#">Contact Me</a>
+        <div class="nav-blur"></div>
+    </div>
+
+    <div class="grainy"></div>
+
     <nav>
         <div class="hamburger">
-            <div class="hamburger-icon"></div>
-        </div>
-
-        <div id="nav-items">
-            <a class="nav-item" href="#">About</a>
-            <a class="nav-item" href="#">Projects</a>
-            <a class="nav-item" href="#">Contact Me</a>
+            <div id="nav-icon3">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            <div class="hamburger-blur"></div>
         </div>
     </nav>
+
+
+    
+    <div class="main-bg">
 
     <main>
         <div class="hero">
@@ -31,9 +45,22 @@
                 <h1 class="glitch" data-text="Andrew">Andrew</h1>
             </div>
         </div>
+   
     </main>
+
+    <div class="vid-container">
+        <video id="main-vid" muted loop autoplay>
+            <source src="video/Sequence 02.mov" type='video/quicktime;'>
+            <source src="video/0001-0250.webm" type='video/webm'>
+        </video>
+    </div>
+
+
+</div>
+
 
 
     <script src="/scripts/script.js"></script>
+    
 </body>
 </html>

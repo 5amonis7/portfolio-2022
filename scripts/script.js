@@ -1,24 +1,21 @@
 // Mobile Nav
 const hamburger = document.querySelector('.hamburger');
-const hamburgerIcon = document.querySelector('.hamburger-icon');
+let hamburgerIcon = document.querySelector('#nav-icon3')
 const mobileMenu = document.querySelector('#nav-items');
 const mobileItem = document.querySelectorAll('.nav-item');
 const h1 = document.querySelector('.glitch');
+const heroText = document.querySelector('.hero-text')
 
 let showingMenu = false;
-let profession = [ 'Andrew', 'a Developer', 'a Wizard' ];
+let profession = [ 'Andrew', 'a Programmer' ];
 let professionPos = 0;
 
 // NAV HAMBURGER
 hamburger.addEventListener('click', () => {
     if (!showingMenu) {
-        hamburger.style.transform = 'rotate(720deg)';
         mobileMenu.style.transform = 'translateY(0%)';
-        hamburgerIcon.classList.add('open');
     } else {
-        hamburger.style.transform = 'rotate(-720deg)';
-        mobileMenu.style.transform = 'translateY(-100%)';
-        hamburgerIcon.classList.remove('open');
+        mobileMenu.style.transform = 'translateY(-150%)';
     }
     showingMenu = !showingMenu;
 })
@@ -26,19 +23,19 @@ hamburger.addEventListener('click', () => {
 // GLITCH ANIMATION
 function glitch(element) {
     setInterval(() => {
-        
-      const skew = Math.random() * 20 - 10;
-      // element::before
-      const before1 = Math.random() * 100;
-      const after1 = Math.random() * 100;
-      // element::after
-      const before2 = Math.random() * 100;
-      const after2 = Math.random() * 100;
-  
-      element.style.setProperty('--skew', `${skew}deg`);
-      property(element, skew, before1, after1, before2, after2);
-      
-    }, 200);
+
+        const skew = Math.random() * 20 - 10;
+        // element::before
+        const before1 = Math.random() * 100;
+        const after1 = Math.random() * 100;
+        // element::after
+        const before2 = Math.random() * 100;
+        const after2 = Math.random() * 100;
+
+        element.style.setProperty('--skew', `${skew}deg`);
+        property(element, skew, before1, after1, before2, after2);
+       
+    }, 300);
     setInterval(() => {
         property(element, 0, 0, 0, 0);
       }, 400)
@@ -58,14 +55,18 @@ function property(element, item1, item2, item3, item4){
 }
 
 // CHANGING MAIN TITLE
-function changeProfession(element) {
-professionPos > 2 ? professionPos = 0: professionPos = professionPos;
+function changeProfession() {
+professionPos > 1 ? professionPos = 0: professionPos = professionPos;
 h1.innerHTML = profession[professionPos];
 h1.setAttribute('data-text', profession[professionPos]);
 professionPos++;
-setTimeout(()=>{changeProfession(h1)}, 3000);
+setTimeout(()=>{changeProfession()}, 3000);
 };
 
 // CALLING FUNCTIONS
 glitch(h1);
-changeProfession(h1);
+changeProfession();
+
+hamburgerIcon.addEventListener('click', () => {
+    hamburgerIcon.classList.toggle('open');
+})

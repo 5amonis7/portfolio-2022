@@ -11,12 +11,7 @@ body {
 }
 
 body {
-    background-color: rgb(34, 34, 34);
-    overflow-x: hidden;
-}
-
-.open{
-    background: transparent !important;
+    background-color: #15414b;
 }
 
 // ANIMATION
@@ -31,3 +26,16 @@ body {
 // 		background-position: 0% 100%;
 // 	}
 // }
+
+.disappear{
+    animation: disappear 0.5s linear forwards;
+}
+
+@keyframes disappear {
+    0%, 70% {
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}

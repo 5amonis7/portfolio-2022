@@ -11,81 +11,191 @@ body {
 }
 
 body {
-  background-color: rgb(34, 34, 34);
-  overflow-x: hidden;
+  background-color: #15414b;
 }
 
-.open {
-  background: transparent !important;
+.disappear {
+  -webkit-animation: disappear 0.5s linear forwards;
+          animation: disappear 0.5s linear forwards;
+}
+
+@-webkit-keyframes disappear {
+  0%, 70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes disappear {
+  0%, 70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.main-bg {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.grainy {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  opacity: 0.4;
+  background-color: black;
+  z-index: -1;
 }
 
 nav {
-  background-color: #000;
-  width: 100%;
-  height: 4rem;
   position: relative;
+  border: 1px rgb(51, 110, 97) solid;
+  border-radius: 20px;
+  position: absolute;
+  width: 98%;
+  height: 98%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 90;
 }
 nav .hamburger {
   position: absolute;
-  right: 1rem;
-  top: 1rem;
-  height: 2rem;
+  border: 1px rgb(51, 110, 97) solid;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  padding: 0.6rem 0.8rem 0 3rem;
+  right: -1px;
+  top: -1px;
+  height: 4rem;
   cursor: pointer;
   transition: 0.5s all ease;
   z-index: 99;
+  overflow: hidden;
 }
-nav .hamburger .hamburger-icon {
-  position: relative;
-  width: 35px;
-  height: 3px;
-  background: white;
-  transition: 0.5s all ease;
-}
-nav .hamburger .hamburger-icon::after, nav .hamburger .hamburger-icon::before {
-  content: "";
+nav .hamburger-blur {
+  width: 100%;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  left: 0;
+  top: 0;
+  height: 100%;
   position: absolute;
-  width: inherit;
-  height: inherit;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgb(51, 110, 97));
+  filter: blur(10px);
+}
+nav #nav-icon3 {
+  z-index: 100;
+  width: 50px;
+  position: relative;
+  transform: rotate(0deg);
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+nav #nav-icon3 span {
+  display: block;
+  position: absolute;
+  height: 5px;
+  width: 100%;
   background: white;
-  transition: 0.5s all ease;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
 }
-nav .hamburger .hamburger-icon::before {
-  top: 10px;
+nav #nav-icon3 span:nth-child(1) {
+  top: 0px;
 }
-nav .hamburger .hamburger-icon::after {
-  top: 20px;
+nav #nav-icon3 span:nth-child(2), nav #nav-icon3 span:nth-child(3) {
+  top: 18px;
 }
-nav .hamburger .hamburger-icon.open:after {
-  transform: rotate(-45deg) translate(7px, -5px);
+nav #nav-icon3 span:nth-child(4) {
+  top: 36px;
 }
-nav .hamburger .hamburger-icon.open:before {
-  transform: rotate(45deg) translate(3px, 1px);
+nav #nav-icon3.open span:nth-child(1) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
 }
-nav #nav-items {
+nav #nav-icon3.open span:nth-child(2) {
+  transform: rotate(45deg);
+}
+nav #nav-icon3.open span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+nav #nav-icon3.open span:nth-child(4) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+#nav-items {
+  position: absolute;
   width: 100%;
   height: 100vh;
-  background: black;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transform: translateY(-100%);
+  transform: translateY(-150%);
   transition: 0.5s all ease;
+  z-index: 50;
 }
-nav #nav-items .nav-item {
+#nav-items .nav-item {
   text-decoration: none;
   color: white;
   font-weight: 700;
   font-size: 3rem;
   line-height: 3;
 }
+#nav-items .nav-blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  z-index: -1;
+}
 
+main {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+main .hero {
+  margin-top: 5rem;
+}
 main .hero-text {
   color: white;
   padding: 1rem 2rem;
+  z-index: -1;
 }
 main .hero-text h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
+  z-index: -1;
+}
+main .hero-text .glitch {
+  overflow: hidden;
+  transform: skew(0deg);
 }
 main .hero-text .glitch::after, main .hero-text .glitch::before {
   padding-left: 2.5rem;
@@ -95,7 +205,7 @@ main .hero-text .glitch::after, main .hero-text .glitch::before {
   transition: -webkit-clip-path 50ms ease-in;
   transition: clip-path 50ms ease-in;
   transition: clip-path 50ms ease-in, -webkit-clip-path 50ms ease-in;
-  background-color: rgb(34, 34, 34);
+  background-color: rgb(13, 39, 45);
 }
 main .hero-text .glitch::before {
   left: 5px;
@@ -110,5 +220,25 @@ main .hero-text .glitch::after {
           clip-path: polygon(0 var(--a2), 100% var(--a2), 100% var(--b2), 0 var(--b2));
 }
 main .scew {
-  transform: skew(var(--skew));
+  transform: skew(var(--skew)) !important;
+}
+
+.vid-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+#main-vid {
+  margin-top: 8rem;
+  transform: scale(2);
+  width: 100%;
+  height: auto;
+  z-index: -1;
 }/*# sourceMappingURL=main.css.map */
