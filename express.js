@@ -5,7 +5,9 @@ const app = express()
 // const assert = require('assert');
 const mongoose = require('mongoose');
 
-mongoose.connect("mongodb+srv://amonis:$Code&&Sleep7@portfolio.j61o7hs.mongodb.net/portfolio", { useNewUrlParser: true })
+const database = config.MY_Database;
+
+mongoose.connect(database, { useNewUrlParser: true })
 
 const blogSchema = new mongoose.Schema({
   name: String,
