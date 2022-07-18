@@ -1,19 +1,22 @@
 const express = require('express')
 const path = require('path')
 const app = express()
+const bodyParser = require('body-parser');
 // const MongoClient = require('mongodb').MongoClient;
 // const assert = require('assert');
 const mongoose = require('mongoose');
 
-const database = config.MY_Database;
+require('dotenv').config();
 
-mongoose.connect(database, { useNewUrlParser: true })
+mongoose.connect(process.env.Database, { useNewUrlParser: true })
 
 const blogSchema = new mongoose.Schema({
   name: String,
   date: Number,
   post: String
 })
+
+app.use(bodyParser.json());
 
 const Blog = mongoose.model("Blog", blogSchema)
 
