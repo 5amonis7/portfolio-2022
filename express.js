@@ -6,9 +6,10 @@ const bodyParser = require('body-parser');
 // const assert = require('assert');
 const mongoose = require('mongoose');
 
-require('dotenv').config();
+// require('dotenv').config();
+// Database = 'mongodb+srv://amonis:$Code&&Sleep7@portfolio.j61o7hs.mongodb.net/portfolio'
 
-mongoose.connect(process.env.Database, { useNewUrlParser: true })
+mongoose.connect('mongodb+srv://amonis:$Code&&Sleep7@portfolio.j61o7hs.mongodb.net/portfolio', { useNewUrlParser: true })
 
 const blogSchema = new mongoose.Schema({
   name: String,
