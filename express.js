@@ -6,9 +6,6 @@ const bodyParser = require('body-parser');
 // const assert = require('assert');
 const mongoose = require('mongoose');
 
-// require('dotenv').config();
-// Database = 'mongodb+srv://amonis:$Code&&Sleep7@portfolio.j61o7hs.mongodb.net/portfolio'
-
 let key = process.env.KEY;
 
 mongoose.connect(`mongodb+srv://amonis:${key}@portfolio.j61o7hs.mongodb.net/portfolio`, { useNewUrlParser: true })
@@ -18,7 +15,6 @@ const blogSchema = new mongoose.Schema({
   date: Number,
   post: String
 })
-// 'mongodb+srv://amonis:$Code&&Sleep7@portfolio.j61o7hs.mongodb.net/portfolio'
 
 app.use(bodyParser.json());
 
