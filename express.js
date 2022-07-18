@@ -39,7 +39,7 @@ app.listen(port, function () {
 
 // respond with "hello world" when a GET request is made to the homepage
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + 'index.html')
+  res.sendFile(__dirname + '/index.html')
 })
 
 app.use(express.static(path.join(__dirname, '/public')));
